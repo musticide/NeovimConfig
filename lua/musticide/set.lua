@@ -7,9 +7,6 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup()
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -22,8 +19,8 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+vim.opt.swapfile = true 
+vim.opt.backup =true 
 --vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 --vim.opt.undofile = true
 
