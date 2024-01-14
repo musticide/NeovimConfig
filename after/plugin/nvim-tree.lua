@@ -17,7 +17,7 @@ end
 -- pass to setup along with your other options
 require("nvim-tree").setup {
   ---
-  on_attach = my_on_attach,
+--  on_attach = my_on_attach,
   ---
   sort = {
     sorter = "case_sensitive",
@@ -29,6 +29,6 @@ require("nvim-tree").setup {
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 }--return setup

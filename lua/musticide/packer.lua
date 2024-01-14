@@ -42,4 +42,5 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
 
     use('nvim-tree/nvim-tree.lua')
+    use('jose-elias-alvarez/null-ls.nvim')
 end)
