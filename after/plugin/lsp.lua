@@ -30,12 +30,14 @@ require('mason-lspconfig').setup({
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
+local ls = require('luasnip')
+
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            ls.lsp_expand(args.body)
         end,
     },
     sources = {
@@ -53,3 +55,4 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
     }),
 })
+
