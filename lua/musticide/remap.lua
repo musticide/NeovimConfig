@@ -52,3 +52,14 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- Hop between buffers
+vim.keymap.set({"n", "t"}, "<A-j>", "<C-w>j")
+vim.keymap.set({"n", "t"}, "<A-k>", "<C-w>k")
+vim.keymap.set({"n", "t"}, "<A-h>", "<C-w>h")
+vim.keymap.set({"n", "t"}, "<A-l>", "<C-w>l")
+
+--Normal mode from terminal
+vim.keymap.set({"n", "t"}, "<Esc>", "<C-Bslash><C-n>")
+
+
