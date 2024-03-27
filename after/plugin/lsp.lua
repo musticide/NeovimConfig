@@ -27,6 +27,8 @@ require('mason-lspconfig').setup({
     }
 })
 
+require('lspconfig').shader_ls.setup{}
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
