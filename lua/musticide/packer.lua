@@ -51,8 +51,9 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
             { 'saadparwaiz1/cmp_luasnip' },
-            { 'rafamadriz/friendly-snippets' },
+            -- { 'rafamadriz/friendly-snippets' },
             { 'Harry-Ross/vscode-c-snippets' },
+            { 'musticide/unity-snippets' },
         }
     }
     use('tpope/vim-fugitive')
@@ -62,7 +63,7 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
 
     use('nvim-tree/nvim-tree.lua')
-    use('jose-elias-alvarez/null-ls.nvim')
+    -- use('jose-elias-alvarez/null-ls.nvim')
     use {
         'numToStr/Comment.nvim',
         config = function()

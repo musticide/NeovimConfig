@@ -13,11 +13,12 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, opts)
 end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'rust_analyzer', 'clangd', 'lua_ls', },
+    ensure_installed = { 'rust_analyzer', 'clangd', 'lua_ls', 'omnisharp' },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -27,7 +28,7 @@ require('mason-lspconfig').setup({
     }
 })
 
-require('lspconfig').shader_ls.setup{}
+require('lspconfig').shader_ls.setup {}
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -57,4 +58,3 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
     }),
 })
-

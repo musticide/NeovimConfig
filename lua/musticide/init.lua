@@ -6,5 +6,5 @@ require("mason").setup()
 -- OR setup with some options
 require("nvim-tree").setup()
 
-require("null-ls").setup()
+-- require("null-ls").setup()
 
