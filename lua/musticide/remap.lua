@@ -14,6 +14,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
 
+--Indent and de-Indent
+vim.keymap.set({"n", "v"}, "<", "V<")
 
 vim.keymap.set("n", "<leader>vwm", function()
     require("vim-with-me").StartVimWithMe()
@@ -58,6 +60,12 @@ vim.keymap.set({"n", "t"}, "<A-j>", "<C-w>j")
 vim.keymap.set({"n", "t"}, "<A-k>", "<C-w>k")
 vim.keymap.set({"n", "t"}, "<A-h>", "<C-w>h")
 vim.keymap.set({"n", "t"}, "<A-l>", "<C-w>l")
+
+-- Change buffer Sizes
+vim.keymap.set({"n", "t"}, "<A-J>", "<C-W>-")
+vim.keymap.set({"n", "t"}, "<A-K>", "<C-W>+")
+vim.keymap.set({"n", "t"}, "<A-H>", "<C-W><")
+vim.keymap.set({"n", "t"}, "<A-L>", "<C-W>>")
 
 --Normal mode from terminal
 vim.keymap.set({"n", "t"}, "<Esc>", "<C-Bslash><C-n>")
