@@ -20,16 +20,31 @@ return require('packer').startup(function(use)
     --     end
     -- })
 
+    -- use({
+    --     "cpea2506/one_monokai.nvim",
+    --     config = function()
+    --         -- vim.cmd('colorscheme one_monokai')
+    --         require("one_monokai").setup({
+    --             transparent = true,
+    --             colors = {},
+    --             themes = function(colors)
+    --                 return {}
+    --             end,
+    --             italics = true,
+    --         })
+    --     end
+    -- })
+
     use({
-        "cpea2506/one_monokai.nvim",
+        "navarasu/onedark.nvim",
         config = function()
-            -- vim.cmd('colorscheme one_monokai')
-            require("one_monokai").setup({
+            vim.cmd('colorscheme onedark')
+            require("onedark").setup({
                 transparent = true,
-                colors = {},
-                themes = function(colors)
-                    return {}
-                end,
+                -- colors = {},
+                -- themes = function(colors)
+                --     return {}
+                -- end,
                 italics = true,
             })
         end
@@ -64,12 +79,7 @@ return require('packer').startup(function(use)
 
     use('nvim-tree/nvim-tree.lua')
     -- use('jose-elias-alvarez/null-ls.nvim')
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
+    use ('numToStr/Comment.nvim')
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
