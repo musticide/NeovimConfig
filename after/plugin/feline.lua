@@ -191,7 +191,7 @@ local left = {
 	c.vim_mode,
 	c.gitBranch,
 	c.gitDiffAdded,
-  c.gitDiffRemoved,
+    c.gitDiffRemoved,
 	c.gitDiffChanged,
 	c.separator,
 }
@@ -207,9 +207,7 @@ local middle = {
 local right = {
 	c.lsp_client_names,
 	c.file_type,
-	c.file_encoding,
 	c.position,
-	c.line_percentage,
 	c.scroll_bar,
 }
 

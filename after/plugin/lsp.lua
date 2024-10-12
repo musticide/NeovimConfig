@@ -1,5 +1,46 @@
 local lsp_zero = require('lsp-zero')
 
+local lspconfig = require('lspconfig')
+
+local util = require 'lspconfig.util'
+require("lspconfig.configs").shader_ls = {
+
+    default_config = {
+        cmd = { 'shader-ls', '--stdio' },
+        filetypes = { 'shader', 'shaderlab' },
+        root_dir = function(fname)
+            return util.root_pattern '*.sln' (fname) or util.root_pattern '*.csproj' (fname)
+        end,
+    },
+    docs = {
+        description = [[
+https://github.com/shader-ls/shader-language-server
+
+To install run:
+"dotnet tool install --global shader-ls"
+
+add "$HOME/.dotnet/tools" to PATH on Windows
+
+Language server implementation for ShaderLab
+]],
+    },
+}
+
+lspconfig.shader_ls.setup({
+    on_attach = function(client, bufnr)
+        local buf_set_keymap = vim.api.nvim_buf_set_keymap
+        local opts = { noremap = true, silent = true }
+
+        buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+        buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+        buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    end,
+    capabilities = vim.lsp.protocol.make_client_capabilities(),
+    flags = {
+        debounce_text_changes = 150,
+    },
+})
+
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
@@ -18,7 +59,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'rust_analyzer', 'clangd', 'lua_ls', 'omnisharp' },
+    ensure_installed = { 'rust_analyzer', 'clangd', 'lua_ls', 'csharp_ls' },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -28,7 +69,8 @@ require('mason-lspconfig').setup({
     }
 })
 
-require('lspconfig').shader_ls.setup {}
+
+-- lspconfig.shader_ls.setup()
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -58,3 +100,22 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
     }),
 })
+
+-- local lsp = require 'lspconfig'
+-- local util = require 'lspconfig.util'
+
+-- vim.tbl_deep_extend('keep', lsp, {
+--     -- lsp_name = {
+--     -- 	cmd = { 'command' },
+--     -- 	filetypes = 'filetype',
+--     -- 	name = 'lsp_name',
+--     -- }
+--     shader_ls = {
+--         cmd = { 'shader-ls', '--stdio' },
+--         filetypes = { 'shader', 'shaderlab' },
+--         root_dir = function(fname)
+--             return util.root_pattern '*.sln' (fname) or util.root_pattern '*.csproj' (fname)
+--         end,
+--     },
+--
+-- })
