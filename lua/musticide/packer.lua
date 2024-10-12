@@ -1,6 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -69,6 +66,7 @@ return require('packer').startup(function(use)
             -- { 'rafamadriz/friendly-snippets' },
             { 'Harry-Ross/vscode-c-snippets' },
             { 'musticide/unity-snippets' },
+            { 'mfussenegger/nvim-lint' }
         }
     }
     use('tpope/vim-fugitive')
@@ -79,10 +77,12 @@ return require('packer').startup(function(use)
 
     use('nvim-tree/nvim-tree.lua')
     -- use('jose-elias-alvarez/null-ls.nvim')
-    use ('numToStr/Comment.nvim')
+    use('numToStr/Comment.nvim')
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
     use('kalvinpearce/ShaderHighlight')
+    use('rcarriga/nvim-notify')
+    use('chrisgrieser/nvim-rip-substitute')
 end)
