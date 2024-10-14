@@ -70,6 +70,7 @@ return require('packer').startup(function(use)
         }
     }
     use('tpope/vim-fugitive')
+    use('lewis6991/gitsigns.nvim')
     use('nvim-tree/nvim-web-devicons')
     use('feline-nvim/feline.nvim')
     use('NvChad/nvterm')
