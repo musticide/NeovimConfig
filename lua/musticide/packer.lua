@@ -75,6 +75,7 @@ return require('packer').startup(function(use)
     use('feline-nvim/feline.nvim')
     use('NvChad/nvterm')
     use('ThePrimeagen/harpoon')
+    use('kevinhwang91/nvim-ufo')
 
     use('nvim-tree/nvim-tree.lua')
     -- use('jose-elias-alvarez/null-ls.nvim')
