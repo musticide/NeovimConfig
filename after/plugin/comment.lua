@@ -1,4 +1,6 @@
-require('Comment').setup()
+require('Comment').setup({
+    ignore = '^$',
+})
 local ft = require('Comment.ft')
 
 ft.set('hlsl', {'//%s', '/*%s*/'})
