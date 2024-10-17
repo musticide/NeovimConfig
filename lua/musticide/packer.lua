@@ -75,7 +75,12 @@ return require('packer').startup(function(use)
     use('feline-nvim/feline.nvim')
     use('NvChad/nvterm')
     use('ThePrimeagen/harpoon')
-    use('kevinhwang91/nvim-ufo')
+    use { 'kevinhwang91/nvim-ufo',
+        requires = {
+        use('kevinhwang91/promise-async') 
+        } 
+    }
+
 
     use('nvim-tree/nvim-tree.lua')
     -- use('jose-elias-alvarez/null-ls.nvim')
