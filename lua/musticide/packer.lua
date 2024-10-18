@@ -33,19 +33,9 @@ return require('packer').startup(function(use)
     -- })
 
     use({
-        "navarasu/onedark.nvim",
-        config = function()
-            vim.cmd('colorscheme onedark')
-            require("onedark").setup({
-                transparent = true,
-                -- colors = {},
-                -- themes = function(colors)
-                --     return {}
-                -- end,
-                italics = true,
-            })
-        end
+        "navarasu/onedark.nvim",as = "onedark"
     })
+    use { "rose-pine/neovim", as = "rose-pine" }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use {
@@ -77,10 +67,9 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
     use { 'kevinhwang91/nvim-ufo',
         requires = {
-        use('kevinhwang91/promise-async') 
-        } 
+        use('kevinhwang91/promise-async')
+        }
     }
-    use('mg979/vim-visual-multi')
 
 
     use('nvim-tree/nvim-tree.lua')
