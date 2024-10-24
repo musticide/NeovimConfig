@@ -7,7 +7,7 @@ require("lspconfig.configs").shader_ls = {
 
     default_config = {
         cmd = { 'shader-ls', '--stdio' },
-        filetypes = { 'shader', 'shaderlab', 'hlsl },
+        filetypes = { 'shader', 'shaderlab', 'hlsl' },
         root_dir = function(fname)
             return util.root_pattern '*.sln' (fname) or util.root_pattern '*.csproj' (fname)
         end,
