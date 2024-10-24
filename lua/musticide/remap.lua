@@ -70,4 +70,21 @@ vim.keymap.set({"n", "t"}, "<A-L>", "<C-W>>")
 --Normal mode from terminal
 vim.keymap.set({"n", "t"}, "<Esc>", "<C-Bslash><C-n>")
 
+--Copy the current file path
+-- Function to copy the buffer's path relative to the project root
+local function copy_buffer_path_from_project_root()
+  local project_root = vim.fn.finddir(".git", ".;")
+  if project_root == "" then
+    print("Project root not found")
+    return
+  end
 
+  local relative_path = vim.fn.fnamemodify(vim.fn.expand('%'), project_root)
+  vim.fn.setreg('+', relative_path)
+  print("Copied path: " .. relative_path)
+end
+
+-- Keymap to call the function
+vim.keymap.set('n', '<leader>fc', function ()
+    copy_buffer_path_from_project_root()
+end, { noremap = true, silent = true })
