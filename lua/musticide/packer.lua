@@ -64,7 +64,11 @@ return require('packer').startup(function(use)
     use('nvim-tree/nvim-web-devicons')
     use('feline-nvim/feline.nvim')
     use('NvChad/nvterm')
-    use('ThePrimeagen/harpoon')
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
     use { 'kevinhwang91/nvim-ufo',
         requires = {
         use('kevinhwang91/promise-async')
