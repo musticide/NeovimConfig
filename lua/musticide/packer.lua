@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
     -- })
 
     use({
-        "navarasu/onedark.nvim",as = "onedark"
+        "navarasu/onedark.nvim", as = "onedark"
     })
     use { "rose-pine/neovim", as = "rose-pine" }
 
@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
             -- Autocompletion
+            { 'github/copilot.vim' },
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
@@ -67,11 +68,11 @@ return require('packer').startup(function(use)
     use {
         "ThePrimeagen/harpoon",
         -- branch = "harpoon2",
-        requires = { {"nvim-lua/plenary.nvim"} }
+        requires = { { "nvim-lua/plenary.nvim" } }
     }
     use { 'kevinhwang91/nvim-ufo',
         requires = {
-        use('kevinhwang91/promise-async')
+            use('kevinhwang91/promise-async')
         }
     }
 
