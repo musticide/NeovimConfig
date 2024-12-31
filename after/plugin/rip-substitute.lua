@@ -5,15 +5,13 @@ require("rip-substitute").setup {
 		border = "single",
 		matchCountHlGroup = "Keyword",
 		noMatchHlGroup = "ErrorMsg",
+		position = "bottom", ---@type "top"|"bottom"
 		hideSearchReplaceLabels = false,
-		---@type "top"|"bottom"
-		position = "bottom",
+		hideKeymapHints = false,
 	},
 	prefill = {
-		---@type "cursorWord"| false
-		normal = "cursorWord",
-		---@type "selectionFirstLine"| false does not work with ex-command (see README).
-		visual = "selectionFirstLine",
+		normal = "cursorWord", ---@type "cursorWord"| false
+		visual = "selectionFirstLine", ---@type "selectionFirstLine"| false (does not work with ex-command – see README)
 		startInReplaceLineIfPrefill = false,
 		alsoPrefillReplaceLine = false,
 	},
@@ -21,11 +19,12 @@ require("rip-substitute").setup {
 		abort = "q",
 		confirm = "<CR>",
 		insertModeConfirm = "<C-CR>",
-		prevSubst = "<Up>",
-		nextSubst = "<Down>",
+		prevSubstitutionInHistory = "<Up>",
+		nextSubstitutionInHistory = "<Down>",
 		toggleFixedStrings = "<C-f>", -- ripgrep's `--fixed-strings`
 		toggleIgnoreCase = "<C-c>", -- ripgrep's `--ignore-case`
 		openAtRegex101 = "R",
+		showHelp = "?",
 	},
 	incrementalPreview = {
 		matchHlGroup = "IncSearch",
@@ -47,7 +46,10 @@ require("rip-substitute").setup {
 		-- `replace` line.
 		autoCaptureGroups = false,
 	},
-	notificationOnSuccess = true,
+	notification = {
+		onSuccess = true,
+		icon = "",
+	},
 }
 
 vim.keymap.set(
