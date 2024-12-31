@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
     use('NvChad/nvterm')
     use {
         "ThePrimeagen/harpoon",
-        branch = "harpoon2",
+        -- branch = "harpoon2",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
     use { 'kevinhwang91/nvim-ufo',
