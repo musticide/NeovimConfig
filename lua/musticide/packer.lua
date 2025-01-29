@@ -9,13 +9,7 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    -- use({
-    --     "rebelot/kanagawa.nvim",
-    --     as = 'kanagawa',
-    --     config = function()
-    --         vim.cmd('colorscheme kanagawa')
-    --     end
-    -- })
+    use { "rebelot/kanagawa.nvim", as = 'kanagawa' }
 
     -- use({
     --     "cpea2506/one_monokai.nvim",
