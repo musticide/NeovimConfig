@@ -1,0 +1,3 @@
+return {
+  "musticide/unity-snippets",
+}

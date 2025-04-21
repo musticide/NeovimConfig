@@ -116,7 +116,10 @@ return {
 
       -- Custom Highlights --
       -- colors = {}, -- Override default colors
-      -- highlights = {}, -- Override highlight groups
+      highlights = {
+        NormalFloat = { bg = "none" },
+        FloatBorder = { bg = "none" },
+      }, -- Override highlight groups
 
       -- Plugins Config --
       diagnostics = {
@@ -131,7 +134,8 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "onedark",
+      highlight = {},
     },
-    ColorMyPencils(),
+    -- ColorMyPencils(),
   },
 }
