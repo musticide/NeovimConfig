@@ -1,1 +1,1 @@
-require("musticide")
+require("config.lazy")
