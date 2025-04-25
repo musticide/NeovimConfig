@@ -36,10 +36,19 @@ return {
 						},
 					},
 				},
-				lualine_x = { "lsp_status" },
+				lualine_x = {
+					{
+						"lsp_status",
+						ignore_lsp = { "GitHub Copilot" },
+					},
+				},
 				lualine_y = { "filetype", "location" },
-				-- lualine_z = { "datetime" },
-				lualine_z = { "datetime" },
+				lualine_z = {
+					{
+						"datetime",
+						style = "%d %b,%Y|%H:%M",
+					},
+				},
 			},
 			tabline = {},
 			winbar = {},
