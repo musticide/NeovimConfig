@@ -454,6 +454,9 @@ return { -- Main LSP Configuration
 		end,
 	},
 	{
+		"github/copilot.vim",
+	},
+	{
 		"kalvinpearce/ShaderHighlight",
 		lazy = false,
 	},
