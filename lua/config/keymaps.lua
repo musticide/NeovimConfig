@@ -2,7 +2,7 @@
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set("n", "<Esc><Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -85,7 +85,7 @@ vim.keymap.set({ "n", "t" }, "<A-H>", "<C-W><")
 vim.keymap.set({ "n", "t" }, "<A-L>", "<C-W>>")
 
 --Normal mode from terminal
-vim.keymap.set({ "n", "t" }, "<Esc>", "<C-Bslash><C-n>")
+vim.keymap.set({ "t" }, "<Esc>", "<C-Bslash><C-n>")
 
 -- Vertical split
 vim.keymap.set("n", "<leader>vp", "<cmd>vsplit<CR><C-w>l")
@@ -108,3 +108,8 @@ end
 vim.keymap.set("n", "<leader>fc", function()
 	copy_buffer_path_from_project_root()
 end, { noremap = true, silent = true })
+
+-- GIT Keymaps
+vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>", { desc = "Open [G]it [S]tatus" })
+vim.keymap.set("n", "<leader>gl", "<cmd>diffget //2<CR>", { desc = "Get [G]it [L]ocal" })
+vim.keymap.set("n", "<leader>gr", "<cmd>diffget //3<CR>", { desc = "Get [G]it [R]emote" })
