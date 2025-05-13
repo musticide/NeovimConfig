@@ -111,6 +111,22 @@ return { -- Main LSP Configuration
 					--  the definition of its *type*, not where it was *defined*.
 					map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
 
+					map("[d", function()
+						vim.diagnostic.goto_prev()
+					end, "[D]iagnostic [P]revious")
+
+					map("]d", function()
+						vim.diagnostic.goto_next()
+					end, "[D]iagnostic [N]ext")
+
+					map("[c", function()
+						vim.diagnostic.goto_prev({ vim.diagnostic.severity.ERROR })
+					end, "[D]iagnostic [P]revious")
+
+					map("]c", function()
+						vim.diagnostic.goto_next({ vim.diagnostic.severity.ERROR })
+					end, "[D]iagnostic [N]ext")
+
 					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 					---@param client vim.lsp.Client
 					---@param method vim.lsp.protocol.Method
