@@ -110,6 +110,6 @@ vim.keymap.set("n", "<leader>fc", function()
 end, { noremap = true, silent = true })
 
 -- GIT Keymaps
-vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>", { desc = "Open [G]it [S]tatus" })
-vim.keymap.set("n", "<leader>gl", "<cmd>diffget //2<CR>", { desc = "Get [G]it [L]ocal" })
-vim.keymap.set("n", "<leader>gr", "<cmd>diffget //3<CR>", { desc = "Get [G]it [R]emote" })
+vim.keymap.set("n", "gs", "<cmd>Git<CR>", { desc = "Open [G]it [S]tatus" })
+vim.keymap.set("n", "gl", "<cmd>diffget //2<CR>", { desc = "Get [G]it [L]ocal" })
+vim.keymap.set("n", "gr", "<cmd>diffget //3<CR>", { desc = "Get [G]it [R]emote" })
