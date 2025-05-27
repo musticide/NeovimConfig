@@ -54,6 +54,7 @@ return { -- Main LSP Configuration
 					debounce_text_changes = 150,
 				},
 			})
+
 			-- If you're wondering about lsp vs treesitter, you can check out the wonderfully
 			-- and elegantly composed help section, `:help lsp-vs-treesitter`
 
@@ -261,6 +262,16 @@ return { -- Main LSP Configuration
 							},
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 							-- diagnostics = { disable = { 'missing-fields' } },
+							disagnostics = {
+								globals = { "vim" },
+							},
+							workspace = {
+								library = vim.api.nvim_get_runtime_file("", true),
+								checkThirdParty = false,
+							},
+							telemetry = {
+								enable = false,
+							},
 						},
 					},
 				},
