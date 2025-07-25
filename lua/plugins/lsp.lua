@@ -238,7 +238,30 @@ return { -- Main LSP Configuration
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				-- clangd = {},
+				--require'lspconfig'.clangd.setup{
+				clangd = {
+					cmd = {
+						"clangd",
+						"--compile-commands-dir=build",
+						"--header-insertion=iwyu",
+						"--clang-tidy",
+						"--completion-style=detailed",
+						"--cross-file-rename",
+						"--all-scopes-completion",
+					},
+					filetypes = { "c", "cpp", "objc", "objcpp" },
+					root_dir = require("lspconfig").util.root_pattern(
+						"compile_commands.json",
+						"CMakeLists.txt",
+						".git"
+					),
+					init_options = {
+						clangdFileStatus = true,
+						usePlaceholders = true,
+						completeUnimported = true,
+						semanticHighlighting = true,
+					},
+				},
 				-- gopls = {},
 				-- pyright = {},
 				-- rust_analyzer = {},
