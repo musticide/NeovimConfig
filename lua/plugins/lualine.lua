@@ -24,7 +24,8 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				-- lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = { "branch", "diagnostics" },
 				lualine_c = {
 					{
 						"filename",
@@ -42,11 +43,12 @@ return {
 						ignore_lsp = { "GitHub Copilot" },
 					},
 				},
-				lualine_y = { "filetype", "location" },
+				-- lualine_y = { "filetype", "location" },
+				lualine_y = { "filetype" },
 				lualine_z = {
 					{
 						"datetime",
-						style = "%d %b,%Y|%H:%M",
+						style = "%d-%b|%H:%M",
 					},
 				},
 			},
