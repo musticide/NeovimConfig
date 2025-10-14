@@ -33,7 +33,8 @@ vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
 
 --Indent and de-Indent
-vim.keymap.set({ "n", "v" }, "<", "V<")
+vim.keymap.set({ "n", "v" }, "<", "<gv")
+vim.keymap.set({ "n", "v" }, ">", ">gv")
 
 vim.keymap.set("n", "<leader>vwm", function()
 	require("vim-with-me").StartVimWithMe()
