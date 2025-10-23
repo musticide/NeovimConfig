@@ -17,6 +17,7 @@ return {
 
 		vim.g.gruvbox_material_diagnostic_line_highlight = 0 -- 1 is true
 		vim.g.gruvbox_material_diagnostic_text_highlight = 0 -- 1 is true
+		vim.g.gruvbox_material_diagnostic_virtual_text = "colored" --`'grey'`, `'colored'`, `'highlighted'`
 
 		vim.cmd.colorscheme("gruvbox-material")
 
