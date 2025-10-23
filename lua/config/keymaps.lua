@@ -43,6 +43,8 @@ vim.keymap.set("n", "<leader>svwm", function()
 	require("vim-with-me").StopVimWithMe()
 end)
 
+vim.keymap.set("n", "<C-b>", "<cmd>LspClangdSwitchSourceHeader<CR>", { desc = "Switch between .h and .cpp" })
+
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
