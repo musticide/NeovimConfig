@@ -92,6 +92,7 @@ vim.keymap.set({ "t" }, "<Esc>", "<C-Bslash><C-n>")
 
 -- Vertical split
 vim.keymap.set("n", "<leader>vp", "<cmd>vsplit<CR><C-w>l")
+vim.keymap.set("n", "<leader>sp", "<cmd>split<CR><C-w>j")
 
 --Copy the current file path
 -- Function to copy the buffer's path relative to the project root
