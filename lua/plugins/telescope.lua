@@ -47,12 +47,21 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			-- You can put your default mappings / updates / etc. in here
 			--  All the info you're looking for is in `:help telescope.setup()`
 			--
-			-- defaults = {
-			--   mappings = {
-			--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-			--   },
-			-- },
-			-- pickers = {}
+			defaults = {
+				file_ignore_patterns = { "%.meta" },
+				mappings = {
+					i = { ["<c-enter>"] = "to_fuzzy_refine" },
+				},
+			},
+			pickers = {
+				find_files = {
+					hidden = true,
+					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+					-- no_ignore = true,
+					-- find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" },
+					-- theme = "dropdown", -- "ivy", "cursor", or "dropdown"
+				},
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
@@ -63,6 +72,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
+		pcall(require("notify").load_extension, "notify")
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
