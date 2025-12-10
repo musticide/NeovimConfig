@@ -131,7 +131,7 @@ return {
 			max_height = 0,
 			border = "rounded",
 			win_options = {
-				winblend = 0,
+				winblend = 1,
 			},
 			-- optionally override the oil buffers window title with custom function: fun(winid: integer): string
 			get_win_title = nil,
