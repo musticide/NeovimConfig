@@ -89,7 +89,7 @@ return {
 			end,
 			-- This function defines what will never be shown, even when `show_hidden` is set
 			is_always_hidden = function(name, bufnr)
-				return false
+				return name:match("%.meta$") ~= nil
 			end,
 			-- Sort file names with numbers in a more intuitive order for humans.
 			-- Can be "fast", true, or false. "fast" will turn it off for large directories.
@@ -201,6 +201,6 @@ return {
 		keymaps_help = {
 			border = "rounded",
 		},
-		vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" }),
+		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }),
 	},
 }

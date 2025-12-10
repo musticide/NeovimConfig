@@ -104,6 +104,7 @@ local function copy_buffer_path_from_project_root()
 	end
 
 	local relative_path = vim.fn.fnamemodify(vim.fn.expand("%"), project_root)
+	relative_path = relative_path:gsub("\\", "/")
 	vim.fn.setreg("+", relative_path)
 	print("Copied path: " .. relative_path)
 end
