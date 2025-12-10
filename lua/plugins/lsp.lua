@@ -455,9 +455,11 @@ return { -- Main LSP Configuration
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "lazydev" },
+				default = { "lsp", "path", "snippets" },
 				providers = {
+					-- lsp = { module = "blink.cmp.providers.lsp", score_offset = 1000 },
 					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+					-- snippets = { module = "blink.cmp.snippets.luasnip", score_offset = -50 },
 				},
 			},
 
