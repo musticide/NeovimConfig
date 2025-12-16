@@ -262,6 +262,11 @@ return { -- Main LSP Configuration
 						semanticHighlighting = true,
 					},
 				},
+				csharp_ls = {
+					cmd = { "csharp-ls" },
+					filetypes = { "cs" },
+					root_dir = require("lspconfig").util.root_pattern("*.sln", "*.csproj", ".git"),
+				},
 				-- gopls = {},
 				-- pyright = {},
 				-- rust_analyzer = {},
