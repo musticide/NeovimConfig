@@ -121,11 +121,11 @@ return { -- Main LSP Configuration
 					end, "[D]iagnostic [N]ext")
 
 					map("[e", function()
-						vim.diagnostic.goto_prev({ vim.diagnostic.severity.ERROR })
+						vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
 					end, "[D]iagnostic [P]revious")
 
 					map("]e", function()
-						vim.diagnostic.goto_next({ vim.diagnostic.severity.ERROR })
+						vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
 					end, "[D]iagnostic [N]ext")
 
 					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
