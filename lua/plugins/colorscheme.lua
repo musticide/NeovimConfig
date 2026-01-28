@@ -1,26 +1,118 @@
 return {
-	"shaunsingh/nord.nvim",
-	name = "nord",
+	"rebelot/kanagawa.nvim",
+	lazy = false,
 	priority = 1000,
-
 	config = function()
-		-- Example config in lua
-		vim.g.nord_contrast = true
-		vim.g.nord_borders = true
-		vim.g.nord_disable_background = true
-		vim.g.nord_italic = true
-		vim.g.nord_uniform_diff_background = false
-		vim.g.nord_bold = true
+		-- Default options:
+		require("kanagawa").setup({
+			compile = false, -- enable compiling the colorscheme
+			undercurl = true, -- enable undercurls
+			commentStyle = { italic = true },
+			functionStyle = {},
+			keywordStyle = { italic = true },
+			statementStyle = { bold = true },
+			typeStyle = {},
+			transparent = true, -- do not set background color
+			dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+			terminalColors = true, -- define vim.g.terminal_color_{0,17}
+			colors = { -- add/modify theme and palette colors
+				palette = {},
+				theme = {
+					-- wave = {},
+					-- lotus = {},
+					-- dragon = {},
+					all = {
+						ui = {
+							bg_gutter = "none",
+							bg = "none",
+						},
+					},
+				},
+			},
+			overrides = function(colors) -- add/modify highlights
+				local theme = colors.theme
+				return {
+					-- NormalFloat = { bg = "none" },
+					-- FloatBorder = { bg = "none" },
+					-- FloatTitle = { bg = "none" },
 
-		-- Load the colorscheme
-		require("nord").set()
-		vim.cmd.colorscheme("nord")
+					-- -- Save an hlgroup with dark background and dimmed foreground
+					-- -- so that you can use it where your still want darker windows.
+					-- -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
+					-- -- NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
 
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-		vim.api.nvim_set_hl(0, "FloatTitle", { bg = "none" })
+					-- -- Popular plugins that open floats will link to NormalFloat by default;
+					-- -- set their background accordingly if you wish to keep them dark and borderless
+					-- LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+					-- MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+
+					-- Borderless Telescope
+					TelescopeTitle = { fg = theme.ui.special, bold = true },
+					TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+					TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+					TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+					TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+					TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+					TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+				}
+			end,
+			theme = "dragon", -- Load "wave" theme values: wave dragon lotus
+			-- background = { -- map the value of 'background' option to a theme
+			-- 	dark = "wave", -- try "dragon" !
+			-- 	light = "lotus",
+			-- },
+		})
+
+		-- setup must be called before loading
+		-- vim.cmd("colorscheme kanagawa")
+		vim.cmd.colorscheme("kanagawa-dragon")
 	end,
 }
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	opts = {
+-- 		style = "night",
+-- 		transparent = true,
+-- 		styles = {
+-- 			-- Style to be applied to different syntax groups
+-- 			-- Value is any valid attr-list value for `:help nvim_set_hl`
+-- 			comments = { italic = true },
+-- 			keywords = { italic = true },
+-- 			functions = {},
+-- 			variables = {},
+-- 			-- Background styles. Can be "dark", "transparent" or "normal"
+-- 			sidebars = "dark", -- style for sidebars, see below
+-- 			floats = "dark", -- style for floating windows
+-- 		},
+-- 	},
+-- 	config = function()
+-- 		vim.cmd.colorscheme("tokyonight-night")
+-- 	end,
+-- }
+-- return {
+-- 	"shaunsingh/nord.nvim",
+-- 	name = "nord",
+-- 	priority = 1000,
+
+-- 	config = function()
+-- 		vim.g.nord_contrast = true
+-- 		vim.g.nord_borders = true
+-- 		vim.g.nord_disable_background = true
+-- 		vim.g.nord_italic = true
+-- 		vim.g.nord_uniform_diff_background = false
+-- 		vim.g.nord_bold = true
+
+-- 		-- Load the colorscheme
+-- 		require("nord").set()
+-- 		vim.cmd.colorscheme("nord")
+
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "FloatTitle", { bg = "none" })
+-- 	end,
+-- }
 
 -- return {
 -- 	"catppuccin/nvim",
@@ -37,7 +129,7 @@ return {
 -- 			transparent_background = true, -- disables setting the background color.
 -- 			float = {
 -- 				transparent = true, -- enable transparent floating windows
--- 				solid = true, -- use solid styling for floating windows, see |winborder|
+-- 				solid = true, -- use Zsolid styling for floating windows, see |winborder|
 -- 			},
 -- 			show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
 -- 			term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
@@ -104,39 +196,6 @@ return {
 -- 		vim.cmd.colorscheme("catppuccin")
 -- 	end,
 -- }
---[[ return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	priority = 1000,
-	opts = {
-		style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-		transparent = true, -- Enable this to disable setting the background color
-		terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-
-		styles = {
-			-- Style to be applied to different syntax groups
-			-- Value is any valid attr-list value for `:help nvim_set_hl`
-			comments = { italic = true },
-			keywords = { bold = true },
-			functions = {},
-			variables = {},
-			-- Background styles. Can be "dark", "transparent" or "normal"
-			sidebars = "transparent", -- style for sidebars, see below
-			floats = "transparent", -- style for floating windows
-		},
-	},
-	config = function(_, opts)
-		require("tokyonight").setup(opts)
-
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-		vim.api.nvim_set_hl(0, "FloatTitle", { bg = "none" })
-		vim.cmd.colorscheme("tokyonight")
-		-- vim.cmd.colorscheme("tokyonight-night")
-		-- vim.cmd.colorscheme("tokyonight-storm")
-		-- vim.cmd.colorscheme("tokyonight-moon")
-	end,
-} ]]
 --[[ return {
 	"navarasu/onedark.nvim",
 	priority = 1000, -- make sure to load this before all the other start plugins
