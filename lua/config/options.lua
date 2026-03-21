@@ -69,3 +69,21 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+
+local nu_path = "C:/Users/owlci/AppData/Local/Programs/nu/bin/nu.exe"
+
+if vim.fn.executable(nu_path) == 1 then
+	vim.opt.shell = nu_path
+	vim.opt.shellcmdflag = "-c"
+	vim.opt.shellquote = ""
+	vim.opt.shellxquote = ""
+	vim.opt.shellredir = "out+err> %s"
+	vim.opt.shellpipe = "out+err> %s"
+elseif vim.fn.executable("nu") == 1 then
+	vim.opt.shell = "nu"
+	vim.opt.shellcmdflag = "-c"
+	vim.opt.shellquote = ""
+	vim.opt.shellxquote = ""
+	vim.opt.shellredir = "out+err> %s"
+	vim.opt.shellpipe = "out+err> %s"
+end

@@ -90,7 +90,7 @@ vim.keymap.set({ "n", "t" }, "<A-H>", "<C-W><")
 vim.keymap.set({ "n", "t" }, "<A-L>", "<C-W>>")
 
 --Normal mode from terminal
-vim.keymap.set({ "t" }, "<Esc>", "<C-Bslash><C-n>")
+vim.keymap.set({ "t" }, "<C-Esc>", "<C-Bslash><C-n>")
 
 -- Vertical split
 vim.keymap.set("n", "<leader>vp", "<cmd>vsplit<CR><C-w>l")
