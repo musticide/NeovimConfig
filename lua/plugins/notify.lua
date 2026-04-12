@@ -11,13 +11,14 @@ return {
 			-- `"simple"`
 			-- `"compact"`
 			-- `"wrapped-compact"`
-			render = "default",
+			render = "wrapped-compact",
 			-- stages options
 			-- fade_in_slide_out
 			-- fade
 			-- slide
 			-- static
-			stages = "static",
+			stages = "fade",
+			background_colour = "#000000",
 		})
 		vim.notify = require("notify")
 	end,
