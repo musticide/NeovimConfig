@@ -60,7 +60,9 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
+vim.opt.guicursor:append("i-ci-ve:blinkon100")
+-- vim.opt.guicursor = "i:block-blinkon1"
 vim.opt.termguicolors = true
 
 vim.opt.nu = true
